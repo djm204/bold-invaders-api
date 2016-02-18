@@ -14,3 +14,15 @@
 $app->get('/', function () use ($app) {
     return $app->version();
 });
+
+$app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers'], function($app)
+{
+    $app->get('highscore','HighScoreController@index');
+  
+    $app->get('highscore/{id}','HighScoreController@getHighScore');
+      
+    $app->post('highscore','HighScoreController@createHighScore');
+            
+    $app->delete('highscore/{id}','HighScoreController@deleteHighScore');
+});
+
