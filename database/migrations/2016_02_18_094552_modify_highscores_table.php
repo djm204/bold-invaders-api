@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateHighscoresTable extends Migration
+class ModifyHighscoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,10 @@ class CreateHighscoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('high_scores', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name');
-            $table->integer('high_score');
-            $table->timestamps();
+        Schema::table('high_scores', function ($table) {
+            $table->dropColumn('high_score');
+            
         });
-        
-        
     }
 
     /**
@@ -29,6 +25,6 @@ class CreateHighscoresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('high_scores');
+        //
     }
 }
