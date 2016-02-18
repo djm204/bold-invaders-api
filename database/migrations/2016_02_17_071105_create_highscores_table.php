@@ -12,7 +12,7 @@ class CreateHighscoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('highscores', function (Blueprint $table) {
+        Schema::create('high_scores', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('high_score');
@@ -27,6 +27,6 @@ class CreateHighscoresTable extends Migration
      */
     public function down()
     {
-        Schema::drop('highscores');
+        Schema::drop('high_scores');
     }
 }

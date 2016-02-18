@@ -12,17 +12,17 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+    return "Bold-Invaders WebApi";
 });
 
 $app->group(['prefix' => 'api','namespace' => 'App\Http\Controllers'], function($app)
 {
-    $app->get('highscore','HighScoreController@index');
+    $app->get('highscores','HighScoreController@index');
   
-    $app->get('highscore/{id}','HighScoreController@getHighScore');
+    $app->get('highscores/{id}','HighScoreController@getHighScore');
       
-    $app->post('highscore','HighScoreController@createHighScore');
+    $app->post('highscores','HighScoreController@createHighScore');
             
-    $app->delete('highscore/{id}','HighScoreController@deleteHighScore');
+    $app->delete('highscores/{id}','HighScoreController@deleteHighScore');
 });
 
